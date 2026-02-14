@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MediHealth — Simplifying healthcare with online appointment booking, personalised health tips, and an enhanced digital experience.">
+  <title>MediHealth — Your Health, Simplified</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- LOADER -->
+  <div class="loader" id="loader">
+    <div class="loader__inner">
+      <div class="loader__icon">✚</div>
+      <div class="loader__name">MediHealth</div>
+      <div class="loader__bar"><div class="loader__bar-fill"></div></div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       NAVIGATION — Brief Key Feature 3:
+       Enhanced Navigation: A simple and intuitive
+       navigation system to access different services
+       ═══════════════════════════════════════════ -->
+  <header class="header" id="header">
+    <nav class="nav">
+      <a href="#" class="logo">
+        <div class="logo__icon">✚</div>
+        <span class="logo__text">Medi<strong>Health</strong></span>
+      </a>
+      <ul class="nav__menu" id="navMenu">
+        <li><a href="#hero" class="nav__link active">Home</a></li>
+        <li><a href="#services" class="nav__link">Services</a></li>
+        <li><a href="#booking" class="nav__link">Book</a></li>
+        <li><a href="#tips" class="nav__link">Health Tips</a></li>
+        <li><a href="#account" class="nav__link">Account</a></li>
+      </ul>
+      <div class="nav__right">
+        <a href="#booking" class="btn btn--primary btn--sm">Book Appointment</a>
+        <button class="nav__burger" id="navBurger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile overlay -->
+  <div class="mobile-overlay" id="mobileOverlay">
+    <a href="#hero" class="mobile-overlay__link">Home</a>
+    <a href="#services" class="mobile-overlay__link">Services</a>
+    <a href="#booking" class="mobile-overlay__link">Book Appointment</a>
+    <a href="#tips" class="mobile-overlay__link">Health Tips</a>
+    <a href="#account" class="mobile-overlay__link">Account</a>
+    <a href="#booking" class="btn btn--primary" style="margin-top:16px;">Book Now →</a>
+  </div>
+
+  <main>
+
+    <!-- ═══════════════════════════════════════════
+         HERO
+         ═══════════════════════════════════════════ -->
+    <section class="hero" id="hero">
+      <div class="hero__bg-shapes">
+        <div class="hero__blob hero__blob--1"></div>
+        <div class="hero__blob hero__blob--2"></div>
+      </div>
+      <div class="hero__inner">
+        <div class="hero__text">
+          <div class="badge anim-down">
+            <span class="badge__dot"></span>
+            Now Accepting New Patients
+          </div>
+          <h1 class="hero__title anim-down d1">Healthcare<br>made <em>simple.</em></h1>
+          <p class="hero__desc anim-down d2">
+            Book appointments in seconds. Receive personalised health advice.
+            Navigate your wellbeing with confidence — all from one elegant platform.
+          </p>
+          <div class="hero__actions anim-down d3">
+            <a href="#booking" class="btn btn--primary btn--lg">Book an Appointment →</a>
+            <a href="#services" class="btn btn--ghost btn--lg">Our Services</a>
+          </div>
+          <div class="hero__proof anim-down d4">
+            <div class="hero__avatars">
+              <span style="background:#A7D7C5;">J</span>
+              <span style="background:#8ECAE6;">S</span>
+              <span style="background:#F4A261;">M</span>
+              <span style="background:#DDB6C6;">R</span>
+            </div>
+            <p><strong>2,400+</strong> patients trust MediHealth</p>
+          </div>
+        </div>
+
+        <div class="hero__visual anim-up d2">
+          <div class="preview-card">
+            <div class="preview-card__top"></div>
+            <div class="preview-card__head">
+              <div class="preview-card__avatar">S</div>
+              <div>
+                <div class="preview-card__name">Sarah Mitchell</div>
+                <div class="preview-card__sub">Patient since 2024</div>
+              </div>
+              <span class="preview-card__online">● Online</span>
+            </div>
+            <div class="preview-card__stats">
+              <div class="stat"><span class="stat__num">12</span><span class="stat__lbl">Appointments</span></div>
+              <div class="stat"><span class="stat__num">98%</span><span class="stat__lbl">Health Score</span></div>
+              <div class="stat"><span class="stat__num">24</span><span class="stat__lbl">Tips Read</span></div>
+            </div>
+            <div class="preview-card__next">
+              <span class="preview-card__next-label">Next Appointment</span>
+              <div class="preview-card__next-row">
+                <span class="preview-card__next-icon">📅</span>
+                <div>
+                  <strong>General Check-up</strong>
+                  <small>Tomorrow, 10:30 AM</small>
+                </div>
+                <span class="pill pill--green">Confirmed</span>
+              </div>
+            </div>
+          </div>
+          <div class="float-pill float-pill--1">✓ Appointment Confirmed</div>
+          <div class="float-pill float-pill--2">♥ New Health Tip</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         SERVICES — Brief: Company Provides
+         ═══════════════════════════════════════════ -->
+    <section class="services" id="services">
+      <div class="section-head">
+        <span class="tag"><span class="tag__line"></span>What We Offer</span>
+        <h2 class="section-title">Healthcare services<br>designed around <em>you</em></h2>
+        <p class="section-desc">MediHealth specialises in basic healthcare services — from routine check-ups to personalised health advice — delivered through an intuitive digital platform.</p>
+      </div>
+      <div class="services__grid">
+        <article class="svc-card scroll-reveal">
+          <div class="svc-card__icon svc-card__icon--teal">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <h3>Basic Health Check-ups</h3>
+          <p>Comprehensive routine examinations to monitor your health including vital signs, blood work reviews, and personalised health assessments.</p>
+          <a href="#booking" class="svc-card__link">Book a check-up →</a>
+        </article>
+        <article class="svc-card scroll-reveal" style="--delay:.1s">
+          <div class="svc-card__icon svc-card__icon--amber">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <h3>Online Appointment Scheduling</h3>
+          <p>Schedule, reschedule, or cancel appointments effortlessly. Our digital booking system puts you in full control of your healthcare calendar.</p>
+          <a href="#booking" class="svc-card__link">Schedule now →</a>
+        </article>
+        <article class="svc-card scroll-reveal" style="--delay:.2s">
+          <div class="svc-card__icon svc-card__icon--rose">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          </div>
+          <h3>Health Advice &amp; Tips</h3>
+          <p>Access interactive, personalised health tips based on your profile and preferences. Evidence-based guidance in an engaging, easy-to-understand format.</p>
+          <a href="#tips" class="svc-card__link">View tips →</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         BOOKING — Brief Key Feature 1:
+         Online Appointment Booking: Users can schedule,
+         reschedule, and cancel appointments
+         ═══════════════════════════════════════════ -->
+    <section class="booking" id="booking">
+      <div class="booking__wrap">
+        <div class="booking__info scroll-reveal">
+          <span class="tag"><span class="tag__line"></span>Appointment Booking</span>
+          <h2 class="section-title">Book, reschedule<br>or cancel — <em>easily</em></h2>
+          <p class="section-desc">Our online booking system lets you manage your healthcare appointments with just a few clicks. Select a service, pick your preferred date and time, and confirm instantly.</p>
+          <ul class="benefits">
+            <li><span class="benefits__ico">⚡</span><div><strong>Instant Confirmation</strong><small>Receive immediate booking confirmation</small></div></li>
+            <li><span class="benefits__ico">🔄</span><div><strong>Easy Rescheduling</strong><small>Change your appointment date or time anytime</small></div></li>
+            <li><span class="benefits__ico">✕</span><div><strong>Simple Cancellation</strong><small>Cancel with one click — no phone calls needed</small></div></li>
+            <li><span class="benefits__ico">🔒</span><div><strong>Secure &amp; Private</strong><small>Data stored securely via Supabase with RLS</small></div></li>
+          </ul>
+        </div>
+
+        <div class="booking__form scroll-reveal" style="--delay:.12s">
+          <div class="card">
+            <div class="card__head">
+              <h3>New Appointment</h3>
+              <p>Fields marked * are required</p>
+            </div>
+            <form id="bookingForm">
+              <div class="form-row">
+                <div class="form-group"><label for="bkFname">First Name *</label><input type="text" id="bkFname" required placeholder="John"></div>
+                <div class="form-group"><label for="bkLname">Last Name *</label><input type="text" id="bkLname" required placeholder="Smith"></div>
+              </div>
+              <div class="form-group"><label for="bkEmail">Email Address *</label><input type="email" id="bkEmail" required placeholder="john@email.com"></div>
+              <div class="form-group"><label for="bkPhone">Phone Number</label><input type="tel" id="bkPhone" placeholder="+44 7700 900000"></div>
+              <div class="form-group">
+                <label for="bkService">Service *</label>
+                <select id="bkService" required>
+                  <option value="">Select a service…</option>
+                  <option value="general-checkup">General Health Check-up</option>
+                  <option value="blood-test">Blood Test</option>
+                  <option value="vaccination">Vaccination</option>
+                  <option value="consultation">Doctor Consultation</option>
+                  <option value="follow-up">Follow-up Appointment</option>
+                  <option value="health-screening">Health Screening</option>
+                </select>
+              </div>
+              <div class="form-row">
+                <div class="form-group"><label for="bkDate">Date *</label><input type="date" id="bkDate" required></div>
+                <div class="form-group">
+                  <label for="bkTime">Time *</label>
+                  <select id="bkTime" required>
+                    <option value="">Select…</option>
+                    <option>09:00</option><option>09:30</option><option>10:00</option><option>10:30</option>
+                    <option>11:00</option><option>11:30</option><option>12:00</option>
+                    <option>14:00</option><option>14:30</option><option>15:00</option><option>15:30</option>
+                    <option>16:00</option><option>16:30</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group"><label for="bkNotes">Additional Notes</label><textarea id="bkNotes" rows="3" placeholder="Any symptoms, allergies, or information…"></textarea></div>
+              <button type="submit" class="btn btn--primary btn--full" id="bkSubmit">Confirm Appointment</button>
+              <div class="form-msg" id="bkMsg"></div>
+            </form>
+
+            <!-- Manage / Reschedule / Cancel -->
+            <div class="manage">
+              <div class="manage__divider"><span>Manage Existing Booking</span></div>
+              <div class="form-group">
+                <label for="manageEmail">Email to look up bookings</label>
+                <div class="form-inline">
+                  <input type="email" id="manageEmail" placeholder="john@email.com">
+                  <button type="button" class="btn btn--ghost btn--sm" onclick="MediHealth.lookupAppointments()">Look Up</button>
+                </div>
+              </div>
+              <div id="appointmentsList" class="manage__list"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         HEALTH TIPS — Brief Key Feature 2:
+         Interactive Health Tips: personalised health tips
+         based on their profile and preferences
+         ═══════════════════════════════════════════ -->
+    <section class="tips" id="tips">
+      <div class="section-head">
+        <span class="tag"><span class="tag__line"></span>Interactive Health Tips</span>
+        <h2 class="section-title">Personalised advice<br>tailored to <em>you</em></h2>
+        <p class="section-desc">Select your interests below to receive health tips matched to your preferences. Our interactive system adapts to show you the most relevant guidance.</p>
+      </div>
+
+      <div class="tips__filters scroll-reveal" id="tipFilters">
+        <button class="chip active" data-cat="all">All Tips</button>
+        <button class="chip" data-cat="nutrition">🥗 Nutrition</button>
+        <button class="chip" data-cat="fitness">🏃 Fitness</button>
+        <button class="chip" data-cat="sleep">😴 Sleep</button>
+        <button class="chip" data-cat="mental-health">🧘 Mental Health</button>
+        <button class="chip" data-cat="hydration">💧 Hydration</button>
+        <button class="chip" data-cat="prevention">🩺 Prevention</button>
+      </div>
+
+      <div class="tips__grid" id="tipsGrid"></div>
+
+      <div class="tips__cta scroll-reveal">
+        <div class="tips__cta-inner">
+          <div>
+            <h3>Get personalised recommendations</h3>
+            <p>Create an account to receive health tips tailored to your profile, preferences, and health goals.</p>
+          </div>
+          <a href="#account" class="btn btn--primary">Create Free Account →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         TESTIMONIALS CAROUSEL
+         ═══════════════════════════════════════════ -->
+    <section class="testimonials" id="testimonials">
+      <div class="section-head">
+        <span class="tag"><span class="tag__line"></span>Patient Stories</span>
+        <h2 class="section-title">Trusted by thousands<br>of <em>real patients</em></h2>
+        <p class="section-desc">See what our patients have to say about their experience with MediHealth.</p>
+      </div>
+
+      <div class="carousel" id="carousel">
+        <div class="carousel__track" id="carouselTrack">
+          <!-- Testimonial 1 -->
+          <div class="testimonial">
+            <div class="testimonial__stars">★★★★★</div>
+            <p class="testimonial__quote">"MediHealth got rid of my gonorrhoea. Absolute lifesavers — quick appointment, no judgement, sorted in days. Can't recommend them enough!"</p>
+            <div class="testimonial__author">
+              <div class="testimonial__avatar" style="background:linear-gradient(135deg,#F4A261,#E76F51);">AB</div>
+              <div>
+                <div class="testimonial__name">Aidan Brown</div>
+                <div class="testimonial__role">Patient since 2025</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="testimonial">
+            <div class="testimonial__stars">★★★★★</div>
+            <p class="testimonial__quote">"Booking my check-up took about 30 seconds. I used to spend ages on hold with my old GP — MediHealth is a completely different experience."</p>
+            <div class="testimonial__author">
+              <div class="testimonial__avatar" style="background:linear-gradient(135deg,#8ECAE6,#219EBC);">ER</div>
+              <div>
+                <div class="testimonial__name">Emily Richardson</div>
+                <div class="testimonial__role">Patient since 2024</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div class="testimonial">
+            <div class="testimonial__stars">★★★★★</div>
+            <p class="testimonial__quote">"The health tips section actually taught me things I didn't know about sleep hygiene. I've been sleeping better for months now thanks to the advice."</p>
+            <div class="testimonial__author">
+              <div class="testimonial__avatar" style="background:linear-gradient(135deg,#A7D7C5,#2A9D8F);">MK</div>
+              <div>
+                <div class="testimonial__name">Marcus Keane</div>
+                <div class="testimonial__role">Patient since 2024</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 4 -->
+          <div class="testimonial">
+            <div class="testimonial__stars">★★★★★</div>
+            <p class="testimonial__quote">"I rescheduled my blood test three times and it was completely painless each time. The online system just works — no fuss, no phone calls."</p>
+            <div class="testimonial__author">
+              <div class="testimonial__avatar" style="background:linear-gradient(135deg,#DDB6C6,#C77D95);">SP</div>
+              <div>
+                <div class="testimonial__name">Sofia Patel</div>
+                <div class="testimonial__role">Patient since 2025</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 5 -->
+          <div class="testimonial">
+            <div class="testimonial__stars">★★★★★</div>
+            <p class="testimonial__quote">"My nan isn't great with technology but she managed to book her vaccination on MediHealth by herself. That says everything about how simple it is."</p>
+            <div class="testimonial__author">
+              <div class="testimonial__avatar" style="background:linear-gradient(135deg,#B8A9C9,#7B6FA0);">JT</div>
+              <div>
+                <div class="testimonial__name">James Thornton</div>
+                <div class="testimonial__role">Patient since 2024</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 6 -->
+          <div class="testimonial">
+            <div class="testimonial__stars">★★★★★</div>
+            <p class="testimonial__quote">"I love having all my appointments and health info in one place. The personalised tips are genuinely useful — not the generic rubbish you find online."</p>
+            <div class="testimonial__author">
+              <div class="testimonial__avatar" style="background:linear-gradient(135deg,#FFD6A5,#FF9B50);">OW</div>
+              <div>
+                <div class="testimonial__name">Olivia Walsh</div>
+                <div class="testimonial__role">Patient since 2025</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         ACCOUNT / AUTH (Supabase)
+         ═══════════════════════════════════════════ -->
+    <section class="account" id="account">
+      <div class="account__card scroll-reveal">
+        <!-- Auth panel (logged out) -->
+        <div id="authPanel">
+          <div class="account__header">
+            <div class="account__ico">✚</div>
+            <h3>Your MediHealth Account</h3>
+            <p>Sign in or create an account to manage appointments and get personalised health tips.</p>
+          </div>
+          <div class="auth-tabs" id="authTabs">
+            <button class="auth-tab active" data-tab="login">Sign In</button>
+            <button class="auth-tab" data-tab="signup">Create Account</button>
+          </div>
+          <form id="loginForm" class="auth-form active">
+            <div class="form-group"><label for="loginEmail">Email</label><input type="email" id="loginEmail" required placeholder="you@email.com"></div>
+            <div class="form-group"><label for="loginPass">Password</label><input type="password" id="loginPass" required placeholder="Enter your password"></div>
+            <button type="submit" class="btn btn--primary btn--full">Sign In</button>
+            <div class="form-msg" id="loginMsg"></div>
+          </form>
+          <form id="signupForm" class="auth-form">
+            <div class="form-row">
+              <div class="form-group"><label for="sigFname">First Name</label><input type="text" id="sigFname" required placeholder="John"></div>
+              <div class="form-group"><label for="sigLname">Last Name</label><input type="text" id="sigLname" required placeholder="Smith"></div>
+            </div>
+            <div class="form-group"><label for="sigEmail">Email</label><input type="email" id="sigEmail" required placeholder="you@email.com"></div>
+            <div class="form-group"><label for="sigPass">Password</label><input type="password" id="sigPass" required placeholder="Min 6 characters" minlength="6"></div>
+            <button type="submit" class="btn btn--primary btn--full">Create Account</button>
+            <div class="form-msg" id="signupMsg"></div>
+          </form>
+        </div>
+        <!-- User panel (logged in) -->
+        <div id="userPanel" style="display:none">
+          <div class="user-panel">
+            <div class="user-panel__head">
+              <div class="user-panel__avatar" id="uAvatar">U</div>
+              <div><div class="user-panel__name" id="uName">User</div><div class="user-panel__email" id="uEmail">user@email.com</div></div>
+            </div>
+            <div id="uAppointments" class="user-panel__list"><p class="muted">Loading your appointments…</p></div>
+            <button class="btn btn--ghost btn--full" onclick="MediHealth.signOut()">Sign Out</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Supabase credentials (hidden inputs for JS) -->
+    <input type="hidden" id="sbUrl" value="https://epkidkpgzwzybnigjiuv.supabase.co">
+    <input type="hidden" id="sbKey" value="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVwa2lka3Bnend6eWJuaWdqaXV2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQ4NTQzNjQsImV4cCI6MjA4MDQzMDM2NH0.zrgSHE7UPwYkudpzim12WMPAoflSUFK-edlVtEySl24">
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="#" class="logo"><div class="logo__icon">✚</div><span class="logo__text">Medi<strong>Health</strong></span></a>
+          <p>Simplifying healthcare access through intuitive digital solutions. Book appointments, get personalised tips, and manage your wellbeing.</p>
+        </div>
+        <div class="footer__col"><h4>Services</h4><ul><li><a href="#booking">General Check-ups</a></li><li><a href="#booking">Blood Tests</a></li><li><a href="#booking">Vaccinations</a></li><li><a href="#booking">Consultations</a></li></ul></div>
+        <div class="footer__col"><h4>Platform</h4><ul><li><a href="#booking">Book Appointment</a></li><li><a href="#tips">Health Tips</a></li><li><a href="#account">My Account</a></li></ul></div>
+        <div class="footer__col"><h4>Support</h4><ul><li><a href="#">Help Centre</a></li><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms of Service</a></li><li><a href="#">Contact Us</a></li></ul></div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2026 MediHealth. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
